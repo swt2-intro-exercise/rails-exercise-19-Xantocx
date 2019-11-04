@@ -13,4 +13,14 @@ RSpec.describe Author, type: :model do
     expect(author.last_name).to eq(last_name)
     expect(author.homepage).to eq(homepage)
   end
+
+  it "should return the whole name when name is called" do
+    first_name = 'Alan'
+    last_name = 'Turing'
+    homepage = 'http://wikipedia.org/Alan_Turing'
+
+    author = Author.new({'first_name' => first_name, 'last_name' => last_name, 'homepage' => homepage})
+
+    expect(author.name).to eq('Alan Turing')
+  end
 end
