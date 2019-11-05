@@ -20,4 +20,14 @@ RSpec.describe Author, type: :model do
   it "should return the whole name when name is called" do
     expect(@alan.name).to eq(@alan_name)
   end
+
+  it "should be validated that every author has a not-empty string as last name" do
+    expect(@alan).to be_valid
+
+    invalid_author1 = Author.new({"first_name" => "", "last_name" => "", "homepage" => ""})
+    invalid_author2 = Author.new({"first_name" => "", "last_name" => nil, "homepage" => ""})
+
+    expect(invalid_author1).to_not be_valid
+    expect(invalid_author2).to_not be_valid
+  end
 end
