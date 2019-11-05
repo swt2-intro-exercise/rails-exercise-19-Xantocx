@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "authors/index.html.erb", type: :feature do
+RSpec.describe "Authors index page", type: :feature do
   
     before(:each) do
         @alan = FactoryBot.create :author
