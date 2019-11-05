@@ -25,9 +25,11 @@ RSpec.describe Author, type: :model do
     expect(@alan).to be_valid
 
     invalid_author1 = Author.new({"first_name" => "", "last_name" => "", "homepage" => ""})
-    invalid_author2 = Author.new({"first_name" => "", "last_name" => nil, "homepage" => ""})
+    invalid_author2 = Author.new({"first_name" => nil, "last_name" => nil, "homepage" => nil})
+    invalid_author3 = Author.new({"first_name" => "alan", "last_name" => nil, "homepage" => "http://example.com"})
 
     expect(invalid_author1).to_not be_valid
     expect(invalid_author2).to_not be_valid
+    expect(invalid_author3).to_not be_valid
   end
 end
