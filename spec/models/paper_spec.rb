@@ -19,4 +19,8 @@ RSpec.describe Paper, type: :model do
     expect(invalid_paper3).to_not be_valid
     expect(invalid_paper4).to_not be_valid
   end
+
+  it "should provide an 'authors' method returning all authors of the paper" do
+    expect(@paper.authors).to_not be_nil
+  end
 end
