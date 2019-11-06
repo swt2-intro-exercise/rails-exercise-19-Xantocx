@@ -32,4 +32,13 @@ RSpec.describe Author, type: :model do
     expect(invalid_author2).to_not be_valid
     expect(invalid_author3).to_not be_valid
   end
+
+  it "should provide an 'papers' method returning all papers of the author" do
+    expect(@alan.papers).to_not be_nil
+
+    paper = FactoryBot.create :paper
+    @alan.papers.append(paper)
+    
+    expect(paper.authors.include? @alan).to be true
+  end
 end

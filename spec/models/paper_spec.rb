@@ -22,5 +22,10 @@ RSpec.describe Paper, type: :model do
 
   it "should provide an 'authors' method returning all authors of the paper" do
     expect(@paper.authors).to_not be_nil
+
+    alan = FactoryBot.create :author
+    @paper.authors.append(alan)
+
+    expect(alan.papers.include? @paper).to be true
   end
 end
